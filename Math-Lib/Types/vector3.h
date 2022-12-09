@@ -23,7 +23,10 @@ public:
 	inline vector3 operator+(const vector3& vector);
 
 	inline float magnitude(const vector3& vector);
-	inline vector3 normalize(vector3 vector3);
+	inline vector3 normalize(vector3 vector);
+
+	inline float dot(const vector3& vector);
+	inline vector3 cross(const vector3& vector);
 private:
 	float x, y, z;
 };

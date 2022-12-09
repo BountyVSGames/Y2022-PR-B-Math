@@ -70,3 +70,14 @@ inline vector3 vector3::normalize(vector3 vector)
 {
 	return (vector / magnitude(vector));
 }
+
+inline float vector3::dot(const vector3& vector)
+{
+	return (this->x * vector[0] + this->y * vector[1] + this->z * vector[2]);
+}
+vector3 vector3::cross(const vector3& vector)
+{
+	return (vector3(this->y * vector[2] - this->z * vector[1],
+			this->z * vector[0] - this->x * vector[2],
+			this->x * vector[1] - this->y * vector[0]));
+}
