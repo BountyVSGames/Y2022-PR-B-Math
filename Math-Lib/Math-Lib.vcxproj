@@ -128,9 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Math-Lib.cpp" />
+    <ClCompile Include="Types\matrix.cpp" />
     <ClCompile Include="Types\vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Types\matrix.h" />
     <ClInclude Include="Types\vector3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -9,8 +9,6 @@ public:
 	vector3(float x, float y, float z);
 	~vector3() = default;
 
-	float x, y, z;
-
 	float& operator[](int i);
 	const float& operator[](int i) const;
 
@@ -27,4 +25,5 @@ public:
 	inline float magnitude(const vector3& vector);
 	inline vector3 normalize(vector3 vector3);
 private:
+	float x, y, z;
 };
