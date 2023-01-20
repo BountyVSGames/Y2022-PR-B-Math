@@ -22,6 +22,10 @@ public:
 
 	matrix operator*(const matrix& matrix);
 	vector3 operator*(const vector3& vector);
+
+	float determinant(const matrix& matrix);
+
+	matrix inverse(const matrix& matrix);
 private:
-	float n[3][3];
+	float n[3][3] = {0};
 };

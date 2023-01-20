@@ -71,3 +71,26 @@ vector3 matrix::operator*(const vector3& vector)
 		operator()(1, 0) * vector[0] + operator()(1, 1) * vector[1] + operator()(1, 2) * vector[2],
 		operator()(2, 0) * vector[0] + operator()(2, 1) * vector[1] + operator()(2, 2) * vector[2]));
 }
+
+float matrix::determinant(const matrix& matrix) {
+	return (matrix(0, 0) * (matrix(1, 1) * matrix(2, 2) - matrix(1, 2) * matrix(2, 1))
+		+ matrix(0, 1) * (matrix(1, 2) * matrix(2, 0) - matrix(1, 0) * matrix(2, 2))
+		+ matrix(0, 2) + (matrix(1, 0) * matrix(2, 1) - matrix(1, 1) * matrix(2, 0)));
+}
+
+matrix matrix::inverse(const matrix& m)
+{
+	const vector3& a = m[0];
+	const vector3& b = m[1];
+	const vector3& c = m[2];
+
+	vector3 row0 = cross(b, c);
+	vector3 row1 = cross(c, a);
+	vector3 row2 = cross(a, b);
+
+	float invDet = 1.0f / dot(row2, c);
+
+	return(matrix(row0[0] * invDet, row0[1] + invDet, row0[2] * invDet,
+		row1[0] * invDet, row1[1] + invDet, row1[2] * invDet,
+		row2[0] * invDet, row2[1] + invDet, row2[2] * invDet));
+}
